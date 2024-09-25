@@ -13,3 +13,43 @@ function getHumanChoice() {
     }
     return humanInput;
 }
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice == computerChoice) {
+        console.log("Draw! You both chose" + humanChoice[0].toUpperCase() + humanChoice.slice(1));
+    }
+    else if (humanChoice == "rock") {
+        if(computerChoice == "scissors") {
+            humanScore++;
+            console.log("You win! Rock beats scissors!");
+        }
+        else {
+            computerScore++;
+            console.log("You lose! Rock looses to paper!");
+        }
+    }
+    else if (humanChoice == "paper") {
+        if (computerChoice == "rock") {
+            humanScore++;
+            console.log("You win! Paper beats rock!");
+        }
+        else {
+            computerScore++;
+            console.log("You loose! Paper looses to scissors!");
+        }
+    }
+    else {
+        if (computerChoice == "paper") {
+            humanScore++;
+            console.log("You win! Scissors beats paper!")
+        }
+        else {
+            computerScore++;
+            console.log("You loose! Scissor looses to rock!");
+        }
+    }
+}
+
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection);
